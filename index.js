@@ -1,4 +1,5 @@
-require('dotenv').config()
+if(process.env.NODE_ENV !== 'production')
+    require('dotenv').config()
 
 
 const Telegraf = require('telegraf');
@@ -89,6 +90,7 @@ bot.command('inspiration', async(ctx) => {
 // });
 
 bot.command('hui', async (ctx) => {
+    ctx.replyWithMarkdown('Test Reply [](https://i.stack.imgur.com/PBP8S.jpg?s=32&g=1)')
     ctx.reply(`И что ты хотел тут увидеть?
     Аффтар: TGIfr
     Дизигн: max
