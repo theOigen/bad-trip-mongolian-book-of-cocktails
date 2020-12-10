@@ -60,6 +60,10 @@ bot.command('inspiration', async(ctx) => {
 bot.command('getbyname', async(ctx) => {
     try {
         let parameter = getParameter( ctx.message.text)
+        if (parameter === undefined) {
+            ctx.reply(`No parameter`)
+            return
+        }
         let cocktails = await getCocktailByName(parameter)
         if (!cocktails.length) {
             ctx.reply(`cocktail with name ${parameter} not found`)
@@ -71,12 +75,12 @@ bot.command('getbyname', async(ctx) => {
         ctx.replyWithMarkdown(cocktail)
         ctx.reply(await getFirstVideoLink(cocktails[0].name, KEY))
     } catch (e) {
-        if(e.name === 'param'){
-            ctx.reply(e)
+        if(e.name === 'param' || e.name === 'TypeError: Cannot read property \'length\' of undefined'){
+            ctx.reply('No parameter')
             console.log("No parameter at getbyname")
         } else {
-            console.log("Something went wrong while getbyname " + e);
-            ctx.reply(`Some server problem, contact bot creator @TGIfr`);
+            console.log("Something went wrong while getbyname " + e.name);
+            ctx.reply("No parameter")
         }
     }
 });
@@ -85,6 +89,11 @@ bot.command('getbyname', async(ctx) => {
 bot.command('getbyingredient', async (ctx) => {
     try {
         let parameter = getParameter( ctx.message.text)
+        if (parameter === undefined) {
+
+            ctx.reply(`No parameter`)
+            return
+        }
         let cocktails = await getCocktailsByIngredient(parameter)
         if (!cocktails.length) {
             ctx.reply(`cocktails with ingredient ${parameter} not found`)
@@ -92,14 +101,14 @@ bot.command('getbyingredient', async (ctx) => {
         }
 
         console.log('getbyingredient command');
-        cocktails.forEach(c => ctx.replyWithMarkdown(formatCocktailWithPreview(c)))
+        cocktails.forEach(c => ctx.replyWithMarkdown(formatCocktailWithPreview(c[0])))
     } catch (e) {
-        if(e.name === 'param'){
+        if(e.name === 'param' || e.name === 'TypeError: Cannot read property \'length\' of undefined'){
             ctx.reply(e)
             console.log("No parameter at getbyingredient")
         } else {
             console.log("Something went wrong while getbyingredient " + e);
-            ctx.reply(`Some server problem, contact bot creator @TGIfr`);
+            ctx.reply("No parameter")
         }
     }
 });
