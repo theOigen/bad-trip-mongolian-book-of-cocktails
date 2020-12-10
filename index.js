@@ -17,6 +17,7 @@ if(process.env.NODE_ENV !== 'development'){
         bot.options.username = botInfo.username
     })
     bot.telegram.setWebhook(`${URL}/bot${API_TOKEN}`);
+    console.log('bot webhook setup')
 }
 
 
