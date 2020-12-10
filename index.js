@@ -139,20 +139,20 @@ bot.command('mongolian', async (ctx) => {
 
 bot.command('hui', async (ctx) => {
     ctx.reply(`И что ты хотел тут увидеть?
-    Аффтар: TGIfr
-    Дизигн: max
-    Аффтар идеи и главный по работе с апи: Oigen`);
+Аффтар: TGIfr
+Дизигн: max
+Аффтар идеи и главный по работе с апи: Oigen`);
 });
 
 bot.command('start', async (ctx) => {
     ctx.reply(`Welcome, stranger!
-    Have a sit and enjoy some cocktails cause when we live we live in clover and when we die we die all over\n
-    /start - get info about commands
-    /getbyname *name* - get cocktail by name. In english, please!
-    /getbyingredient *ingredient* - get some cocktails by ingredient
-    /random - get random cocktail
-    /mongolian - press F
-    /inspiration - get some sport inspiration, pal!`);
+Have a sit and enjoy some cocktails cause when we live we live in clover and when we die we die all over\n
+/start - get info about commands
+/getbyname *name* - get cocktail by name. In english, please!
+/getbyingredient *ingredient* - get some cocktails by ingredient
+/random - get random cocktail
+/mongolian - press F
+/inspiration - get some sport inspiration, pal!`);
 });
 
 
