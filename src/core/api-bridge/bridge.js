@@ -39,8 +39,19 @@ const getRandomCocktail = async () => {
   return mapDrinksArray(response)[0]
 }
 
-// @ToDo add recipe of Mongolian cocktail
-const getMongolian = () => {}
+const getMongolian = () => `Name: Mongolian
+Type: rest in peace
+Glass type: eeeem... whatever
+
+Ingredients:
+cola - 1/3
+beer - 1/3
+vodka - 1/3
+
+Just find someone who will make it
+Optionally eat some activated coal in case of 0.5l one...
+
+[ ](insert image HERE)`
 
 const getInspiration = () => INSPIRATION_LINK
 
