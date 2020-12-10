@@ -104,7 +104,7 @@ bot.command('getbyingredient', async (ctx) => {
         cocktails.forEach(c => ctx.replyWithMarkdown(formatCocktailWithPreview(c[0])))
     } catch (e) {
         if(e.name === 'param' || e.name === 'TypeError: Cannot read property \'length\' of undefined'){
-            ctx.reply(e)
+            ctx.reply('No parameter')
             console.log("No parameter at getbyingredient")
         } else {
             console.log("Something went wrong while getbyingredient " + e);
